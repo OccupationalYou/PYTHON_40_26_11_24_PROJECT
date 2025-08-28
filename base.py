@@ -17,3 +17,4 @@ def create_db():
 
 def drop_db():
     Base.metadata.drop_all(engine)
+
