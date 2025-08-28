@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overclocker</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Overclocker</h1>
+    </header>
+
+    <nav>
+        <div class="menu-item">
+            <a class="menu-link" onclick="showPage('home')">Головна</a>
+        </div>
+        <div class="menu-item">
+            <a class="menu-link" onclick="showFavs()">Ізбране</a>
+        </div>
+        <div class="menu-item">
+            <span class="menu-link">Каталог</span>
+            <div class="submenu">
+                <a onclick="showCatalogCategory('1')">Готові збірки</a>
+                <a onclick="showCatalogCategory('2')">Материнські плати</a>
+                <a onclick="showCatalogCategory('3')">Процесори</a>
+                <a onclick="showCatalogCategory('4')">Охолодження процессора</a>
+                <a onclick="showCatalogCategory('5')">Оперативна память</a>
+                <a onclick="showCatalogCategory('6')">Відеокарти</a>
+                <a onclick="showCatalogCategory('7')">Накопичувачи</a>
+                <a onclick="showCatalogCategory('8')">Блоки живлення</a>
+                <a onclick="showCatalogCategory('9')">Корпуси</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <a class="menu-link" onclick="showPage('about')">О нас</a>
+        </div>
+    </nav>
+
+    <main>
+        <div style="text-align: right; margin-bottom: 10px;">
+            <button class="btn" id="toggle-theme">Сменить тему</button>
+        </div>
+
+        <section id="home" class="active">
+            <h2>Доброго дня!</h2>
+            <p>Тут ви знайдете готові збірки ПК та комп’ютерні комплектуючі</p>
+            <div style="margin-bottom: 1em; text-align:center;">
+                <input type="text" id="searchInput" placeholder="Пошук комплектуючих..."
+                    style="padding: 10px; width: 80%; max-width: 400px; border-radius: 8px; border: 1px solid #ccc;">
+            </div>
+        </section>
+
+        <section id="catalog">
+            <h2>Каталог</h2>
+            <ul class="product-list" id="productList"></ul>
+        </section>
+
+        <section id="favourite">
+            <h2>Ізбране</h2>
+            <ul class="product-list" id="favouriteList"></ul>
+        </section>
+
+        <section id="about">
+            <h2>О нас</h2>
+            <p>Ми працюємо з 2025 року.</p>
+        </section>
+
+        <section id="productDetails">
+            <h2 id="productTitle"></h2>
+            <div class="product-gallery" id="productGallery"></div>
+            <img id="productImage" src="" alt="">
+            <p id="productPrice"></p>
+            <p id="productDesc"></p>
+            <button onclick="showPage('catalog')">← Назад</button>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Overclocker
+    </footer>
+
+    <script src="/static/java_script/script.js"></script>
+
+</body>
+</html>
