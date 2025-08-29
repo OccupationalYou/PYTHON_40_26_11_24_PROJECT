@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template
 from base import create_db, drop_db, Session
 from models.product import Product
