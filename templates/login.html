@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <body>
+    <h1>Вхід</h1>
+    <form method="POST">
+        <input type="text" name="username" placeholder="Логін" required>
+        <input type="password" name="password" placeholder="Пароль" required>
+        <button type="submit">Увійти</button>
+    </form> 
+    <form action="{{ url_for('logout') }}" method="post">
+    <button type="submit">Вийти</button>
+</form>
+</body>
+{% endblock %}
