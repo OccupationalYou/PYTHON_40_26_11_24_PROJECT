@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, DeclarativeBase
 
 
-engine = create_engine("sqlite:///computers.db")
+engine = create_engine("sqlite:///shop.db")
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
@@ -18,4 +18,5 @@ def create_db():
 def drop_db():
 
     Base.metadata.drop_all(engine)
+
 
