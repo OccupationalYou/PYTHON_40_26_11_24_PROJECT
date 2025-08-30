@@ -1,6 +1,6 @@
 
 from flask import Flask, render_template
-from base import create_db, drop_db, Session
+from base import create_db, drop_db
 from models.product import Product
 from models.user import User
 from models.associations import user_products

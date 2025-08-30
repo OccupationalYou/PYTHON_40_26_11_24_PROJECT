@@ -1,12 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_login import LoginManager, login_user, logout_user, login_required, current_user
+from flask_login import LoginManager, login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
-
-from models.user import User
 from base import SessionLocal
-
-
 
 # ---------- Flask App ----------
 app = Flask(__name__)
@@ -19,8 +15,9 @@ login_manager.login_view = "login"
 
 @login_manager.user_loader
 def load_user(user_id):
+    from models.user import User  # Імпорт всередині функції
     with SessionLocal() as session:
-        return session.get(User, int(user_id))  # сучасний спосіб
+        return session.get(User, int(user_id))
 
 # ---------- Routes ----------
 @app.route("/")
@@ -29,6 +26,7 @@ def index():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    from models.user import User  # Імпорт всередині функції
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
@@ -55,6 +53,7 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    from models.user import User  # Імпорт всередині функції
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
