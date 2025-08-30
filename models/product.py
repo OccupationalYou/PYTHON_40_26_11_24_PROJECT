@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 
-from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
-
-=======
 
 from base import Base
 from models.associations import user_products
