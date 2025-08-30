@@ -1,20 +1,18 @@
-
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
-
 from base import Base
-
+from .associations import user_products
+from flask_login import UserMixin
 
 class User(Base):
-    __tablename__ = 'users'
+    __tablename__ = "users"
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, nullable=False)
-    name: Mapped[str] = mapped_column(String, nullable=False, unique=True)
-    email: Mapped[str] = mapped_column(String(128), nullable=False)
-    password: Mapped[str] = mapped_column(String, nullable=False)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    username: Mapped[str] = mapped_column(unique=True)
+    password: Mapped[str] = mapped_column()
 
+    # Тут використовуємо рядкову назву класу "Product" щоб уникнути circular import
     products: Mapped[list["Product"]] = relationship(
-        "Product", secondary="user_product", back_populates="users"
+        "Product",
+        secondary=user_products,
+        back_populates="users"
     )
-
-

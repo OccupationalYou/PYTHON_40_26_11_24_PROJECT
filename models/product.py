@@ -1,19 +1,17 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
-
 from base import Base
-
+from .associations import user_products
 
 class Product(Base):
-    __tablename__ = 'products'
+    __tablename__ = "products"
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, nullable=False)
-    name: Mapped[str] = mapped_column(String, nullable=False)
-    price: Mapped[float] = mapped_column(Float, nullable=False)
-    description: Mapped[str] = mapped_column(String, nullable=False)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column()
+    price: Mapped[float] = mapped_column()
+    description: Mapped[str] = mapped_column()
 
     users: Mapped[list["User"]] = relationship(
-        "User", secondary="user_product", back_populates="products"
+        "User",
+        secondary=user_products,
+        back_populates="products"
     )
-
-
