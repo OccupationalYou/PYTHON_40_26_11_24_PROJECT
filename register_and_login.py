@@ -83,5 +83,6 @@ def logout():
     flash("Ви вийшли з акаунту")
     return redirect(url_for("index"))
 
+# ---------- Запуск додатку ----------
 if __name__ == "__main__":
     app.run(debug=True)
