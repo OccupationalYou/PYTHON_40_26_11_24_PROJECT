@@ -1,3 +1,4 @@
+
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from base import Base
 from .associations import user_products

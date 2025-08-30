@@ -1,3 +1,4 @@
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, DeclarativeBase
 
@@ -17,3 +18,4 @@ def create_db():
 def drop_db():
 
     Base.metadata.drop_all(engine)
+

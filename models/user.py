@@ -1,3 +1,4 @@
+
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from base import Base
 from .associations import user_products
@@ -10,8 +11,10 @@ class User(Base):
     username: Mapped[str] = mapped_column(unique=True)
     password: Mapped[str] = mapped_column()
 
+
     # Тут використовуємо рядкову назву класу "Product" щоб уникнути circular import
     products: Mapped[list["Product"]] = relationship(
+
         "Product",
         secondary=user_products,
         back_populates="users"

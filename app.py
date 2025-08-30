@@ -4,6 +4,7 @@ from base import create_db, drop_db
 from models.product import Product
 from models.user import User
 from models.associations import user_products
+from register_and_login import register, login
 # from routes.products import products_bp
 
 
