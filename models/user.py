@@ -10,9 +10,6 @@ class User(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     username: Mapped[str] = mapped_column(unique=True)
     password: Mapped[str] = mapped_column()
-
-
-    # Тут використовуємо рядкову назву класу "Product" щоб уникнути circular import
     products: Mapped[list["Product"]] = relationship(
 
         "Product",
