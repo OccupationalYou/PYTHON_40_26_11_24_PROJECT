@@ -4,7 +4,7 @@ from base import Base
 from .associations import user_products
 from flask_login import UserMixin
 
-class User(Base):
+class User(UserMixin, Base):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -16,3 +16,18 @@ class User(Base):
         secondary=user_products,
         back_populates="users"
     )
+
+    def __repr__(self):
+        return f'<User {self.username}>'
+
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return str(self.id)
